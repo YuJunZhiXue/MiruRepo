@@ -72,7 +72,6 @@ export default class extends Extension {
     const res = await this.request(`${url}`);
     const coverTitle =
       (await this.querySelector(res, ".de-info__box > p")?.text) ?? "";
-    console.log(coverTitle + "coverTitle");
     const Img = await this.getAttributeText(
       res,
       ".de-info__cover > img",
@@ -116,7 +115,6 @@ export default class extends Extension {
   async watch(url) {
     var res = await this.request(`${url}`);
     const imgList = await this.querySelectorAll(res, ".lazy-read");
-    console.log(imgList.length + "imgList");
     const imgDAta = [];
     for (const element of imgList) {
       const html = element.content;
